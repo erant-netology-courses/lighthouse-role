@@ -1,5 +1,5 @@
 ---
-# tasks file for nginx-lighthouse
+# tasks file for lighthouse
 - name: Install nginx and git
   become: true
   ansible.builtin.apt:
@@ -7,6 +7,13 @@
       - nginx
       - git
     update_cache: true
+
+- name: Download Lighthouse from Github
+  become: true
+  ansible.builtin.git:
+    repo: https://github.com/VKCOM/lighthouse.git
+    dest: /var/www/html/lighthouse
+    version: master
 
 - name: Deploy Nginx config
   become: true

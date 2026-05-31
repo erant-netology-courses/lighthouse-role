@@ -1,8 +1,0 @@
----
-# tasks file for lighthouse
-- name: Download Lighthouse from Github
-  become: true
-  ansible.builtin.git:
-    repo: https://github.com/VKCOM/lighthouse.git
-    dest: /var/www/html/lighthouse
-    version: master
